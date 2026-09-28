@@ -1,0 +1,39 @@
+
+#calculator design
+print("select your operation:")
+print("1 Add")
+print("2 Substract")
+print("3 Multiply")
+print("4 Division")
+
+operation=input()
+
+if operation=="1":
+    num1=input("Enter your number:")
+    num2=input("Enter your another number:")
+    sum=int(num1)+int(num2)
+    print("your sum is:"+str(sum))
+    
+
+elif operation=="2":
+      num1=input("Enter your number:")
+      num2=input("Enter your another number:")
+      diff=int(num1)-int(num2)
+      print("your difference is:"+str(diff))
+      
+
+elif operation=="3":
+      num1=input("Enter your number:")
+      num2=input("Enter your another number:")
+      mul=int(num1)*int(num2)
+      print("your product is:"+str(mul))
+      
+
+elif operation=="4":
+       num1=input("Enter your number:")
+       num2=input("Enter your another number:")
+       div=int(num1)/int(num2)
+       print("your remaminder is:"+str(div))
+       
+else:
+    print("enter a valid operation")

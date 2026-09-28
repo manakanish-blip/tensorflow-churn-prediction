@@ -1,0 +1,248 @@
+# a=int(input("enter your number"))
+# for i in range(1,11):
+#     print(a*i)
+
+# a=int(input("enter your number"))
+# fact_1=1
+# for i in range(1,a+1):
+#     fact_1=fact_1*i
+#     print(fact_1)
+
+# a=int(input("enter your number"))
+# s=1
+# for i in range(1,a):
+#     s=s+i
+# print(s)
+# u=""
+# a="anishwaaaaaaaaa"
+
+# for i in range (0,len(a)):
+
+#     if(i<len(a//2)):
+#         u= u + a[i].upper()
+
+
+# for i in range (1,20):
+#     if i%2 !=0 and i%3 !=0:
+#         print(i)
+
+
+
+
+
+# a=int(input("enter your number"))
+# f=1
+# for i in range (1,a+1):
+#     f=f*i
+# print(f)
+    
+# a=input("enter the name")
+# a1=""
+# for i in range (0,len(a)):
+#     if i<=len(a)//2:
+#         a1=a1+a[i].lower()
+#     else:
+#         a1=a1+a[i].upper()
+
+# print(a1)
+
+
+
+
+# a_sum=0
+# for i in range (1,11,1):
+#     a_sum=a_sum+i
+# print(a_sum/i)
+
+# a_sum=0 #5,15,25,35,45,55,65,75,85,95 = 50 
+
+# for i in range (1,11,1):
+
+#  a=int(input("enter your number"))
+
+#  a_sum=a_sum+a
+
+# print(a_sum/10)
+
+
+# a=int(input("enter your number"))#3,840
+
+# a_fact=1
+# for i in range(1,a+1):
+#     if i%2==0:
+#         a_fact=a_fact*i
+# print(a_fact)
+
+
+# even_sum=0
+# odd_sum=0
+
+# for i in range (12,38):
+#     if i%2==0:
+#      even_sum=even_sum+i
+    
+    
+#     else:
+#        odd_sum=odd_sum+i
+    
+    
+# print("sum of even numbers" ,"=" , even_sum)
+# print("sum of odd number" , "=" ,odd_sum)
+    
+# for i in range (0,5,):
+#     for j in range (1,i+1):
+
+#       print(i , end= " ")
+
+#     print()
+
+
+# def palindrome_check (string):
+#     reversed_string=''.join(reversed(string))
+#     if string==reversed_string:
+#         return "it is a plaindrome"
+#     else:
+#         return "it is not a plaindrome"
+
+
+# b=input("enter your string")
+# print(palindrome_check(b))
+
+# a=int(input("enter yout number"))
+# s=0
+
+# for i in range (1,a):
+#     if a%i==0: 
+
+#      s=s+i  
+
+    
+
+# if s==a:
+#     print("it is a possitive integer")
+# else:
+#     print("it is not a possitive interger")
+
+
+# for i in range (4,9,2):
+#     print(i*10)
+
+# a=3
+# print(a >2 or a<5 and a==6)
+# if a >2 or a<5 and a==6:
+#     print ("bye")
+# else:
+#     print("thank you")
+
+# for i in range (7,0,-2):
+    
+#     for j in range(1,i+1,2):
+#         print(j,end=" ")
+#     print()
+    
+# for i in range (5,0,-1):
+#     for j in range (1,i):
+#         print("*",end=" ")
+#     print()
+
+# a=130#6
+# a_sum=0
+# a_var=str(a)
+
+
+
+# for i in  a_var:
+    
+#     a_sum=a_sum+int(i)
+# print(a_sum)
+
+# a=10,20
+# even_sum=0
+# odd_sum=0
+# for i in range(10,20):
+#     if i%2==0:
+#         even_sum=even_sum+i
+#     else:
+#         odd_sum=odd_sum+i
+#     print(even_sum)
+#     print(odd_sum)
+
+
+# a=123
+# a_var=str(a)
+
+# reverse_number=a_var[::-1]
+# print(int(reverse_number))
+
+
+# str='My blog'
+# a=""
+# for i in range(len(str)):
+#     print(i*str[i]
+
+# for i in range (3,12,13):
+# print("a".upper)
+
+# a="ANISH"
+# cnt=0
+
+# cnt=cnt+1
+
+# print(cnt)
+
+
+# cnt=0
+# while (cnt<len(a)):
+    
+#     print(a[cnt])
+#     cnt=cnt+1
+    
+# a=input("enter your name")
+# b=0
+# for i in range(0,len(a)):
+#     b=b+1
+# print(b)
+# print(len(a))
+
+# a=123
+# b=""
+# a_var=str(a)
+# for i in range (len(a_var)-1,-1,-1):
+#     b=""+a_var[i]
+#     print(b)
+
+# str1="Amit"
+# for i in str1:
+#     print(i)
+#     print(i , end=" ")
+
+
+# sal=float (input("salary: "))
+# tax=sal*(0.1,0.2) [sal<=50000]
+# print(tax)
+    
+
+
+    
+    
+
+    
+ 
+        
+    
+
+
+
+
+    
+    
+
+    
+    
+
+
+    
+
+    
+
+        
