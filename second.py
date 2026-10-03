@@ -1,66 +1,39 @@
-import pandas as pd
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
-# Stable raw dataset link
-url = "https://raw.githubusercontent.com/selva86/datasets/master/Churn_Modelling.csv"
-df = pd.read_csv(url)
-
-# Display the first 5 rows to verify it loaded correctly
-print(df)
-
-import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import classification_report, confusion_matrix
 import tensorflow as tf
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+from tensorflow.keras import datasets, layers, models
+import matplotlib.pyplot as plt
 
-# 1. Load the Dataset
-url = "https://raw.githubusercontent.com/selva86/datasets/master/Churn_Modelling.csv"
-df = pd.read_csv(url)
-print("Dataset loaded successfully! Shape:", df.shape)
+# Step 1: Load and preprocess the CIFAR-10 dataset
+(train_images, train_labels), (test_images, test_labels) = datasets.cifar10.load_data()
 
-# 2. Preprocess Data
-# Drop useless identifier columns
-df = df.drop(['RowNumber', 'CustomerId', 'Surname'], axis=1)
+train_images, test_images = train_images / 255.0, test_images / 255.0
 
-# Convert text/categorical columns ('Geography', 'Gender') into numbers
-df = pd.get_dummies(df, columns=['Geography', 'Gender'], drop_first=True)
+class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer', 
+               'dog', 'frog', 'horse', 'ship', 'truck']
 
-# Separate Independent features (X) and Dependent target variable (y -> Exited)
-X = df.drop('Exited', axis=1).values
-y = df['Exited'].values
+model = models.Sequential()
 
-# Split data: 80% for training, 20% for testing
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Convolutional Block 1
+model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(32, 32, 3)))
+model.add(layers.MaxPooling2D((2, 2)))
 
-# Feature Scaling (Crucial for Neural Networks so values range uniformly)
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
+# Convolutional Block 2
+model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+model.add(layers.MaxPooling2D((2, 2)))
 
-# 3. Build the Artificial Neural Network (ANN) Architecture
-model = Sequential([
-    Dense(16, activation='relu', input_shape=(X_train.shape[1],)), # Hidden Layer 1
-    Dense(8, activation='relu'),                                 # Hidden Layer 2
-    Dense(1, activation='sigmoid')                               # Output Layer (0 or 1 probability)
-])
+# Convolutional Block 3
+model.add(layers.Conv2D(64, (3, 3), activation='relu'))
 
-# 4. Compile the Model
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+# Dense Layers
+model.add(layers.Flatten())
+model.add(layers.Dense(64, activation='relu'))
+model.add(layers.Dense(10))
 
-print("\nTraining the ANN Model...")
-# 5. Train the Model
-history = model.fit(X_train, y_train, epochs=50, batch_size=32, validation_split=0.1, verbose=1)
+model.compile(optimizer='adam',
+              loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+              metrics=['accuracy'])
 
-# 6. Evaluate on Test Data
-print("\nEvaluating Model on Test Data:")
-y_pred_prob = model.predict(X_test)
-y_pred = (y_pred_prob > 0.5).astype(int)
-
-print("\nConfusion Matrix:")
-print(confusion_matrix(y_test, y_pred))
-
-print("\nClassification Report:")
-print(classification_report(y_test, y_pred))
+history = model.fit(train_images, train_labels, epochs=5, 
+                    validation_data=(test_images, test_labels))
